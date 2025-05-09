@@ -15,6 +15,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://*:5085");
+
 
 // ------------------ DATABASE & IDENTITY ------------------
 builder.Services.AddDbContext<AppDbContext>(options =>
