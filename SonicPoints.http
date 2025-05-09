@@ -1,0 +1,6 @@
+@SonicPoints_HostAddress = http://localhost:5019
+
+GET {{SonicPoints_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
