@@ -197,13 +197,20 @@ app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles(); // default wwwroot
+// Ensure "Redeemable Items" folder exists
+var redeemFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Redeemable Items");
+if (!Directory.Exists(redeemFolderPath))
+{
+    Directory.CreateDirectory(redeemFolderPath);
+}
+
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "Redeemable Items")),
+    FileProvider = new PhysicalFileProvider(redeemFolderPath),
     RequestPath = "/Redeemable Items"
 });
+
 app.MapControllers();
 
-Console.WriteLine("✅ SonicPoints API is running...");
+Console.WriteLine(" SonicPoints API is running...");
 app.Run();
