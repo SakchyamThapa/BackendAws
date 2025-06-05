@@ -13,10 +13,11 @@ using SonicPoints.Services;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 //builder.WebHost.UseUrls("http://*:5085");
-
+QuestPDF.Settings.License = LicenseType.Community;
 
 // ------------------ DATABASE & IDENTITY ------------------
 builder.Services.AddDbContext<AppDbContext>(options =>

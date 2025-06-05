@@ -57,27 +57,27 @@ namespace SonicPoints.Repositories
 
 
 
-        // ✅ Get total number of tasks in a project
+        //  Get total number of tasks in a project
         public async Task<int> GetTotalTasksInProjectAsync(int projectId)
         {
             return await _context.Tasks.CountAsync(t => t.ProjectId == projectId);
         }
 
-        // ✅ Get a specific leaderboard entry by task ID and user ID
+        //  Get a specific leaderboard entry by task ID and user ID
         public async Task<Leaderboard> GetLeaderboardEntry(int taskId, string userId)
         {
             return await _context.Leaderboards
                 .FirstOrDefaultAsync(l => l.TaskId == taskId && l.UserId == userId);
         }
 
-        // ✅ Add a new leaderboard entry
+        //  Add a new leaderboard entry
         public async Task AddLeaderboardEntry(Leaderboard leaderboardEntry)
         {
             await _context.Leaderboards.AddAsync(leaderboardEntry);
             await _context.SaveChangesAsync();
         }
 
-        // ✅ Update an existing leaderboard entry
+        //  Update an existing leaderboard entry
         public async Task UpdateLeaderboardEntry(Leaderboard leaderboardEntry)
         {
             _context.Leaderboards.Update(leaderboardEntry);

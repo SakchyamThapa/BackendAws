@@ -39,10 +39,12 @@ namespace SonicPoints.Controllers
                 Email = dto.Email,
                 Type = dto.Type,
                 Rating = dto.Rating,
+                
                 Reason = $"Project ID: {projectId} - Deleted/Expired",
                 SubmittedAt = DateTime.UtcNow,
                 SubmittedByUserId = userId
             };
+
             _context.Feedbacks.Add(feedback);
 
             // Email notifications

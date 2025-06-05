@@ -771,18 +771,6 @@
         }
       }
     },
-    "/api/reports/generate": {
-      "post": {
-        "tags": [
-          "Report"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/reports/project/{projectId}/download-all-reports": {
       "get": {
         "tags": [
@@ -798,6 +786,18 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/reports/generate": {
+      "post": {
+        "tags": [
+          "Report"
         ],
         "responses": {
           "200": {
