@@ -28,7 +28,7 @@ namespace SonicPoints.Controllers
             _projectAuthorization = projectAuthorization;
         }
 
-        // ✅ Get Leaderboard by Project with Pagination and Caching
+        //  Get Leaderboard by Project with Pagination and Caching
         [HttpGet("{projectId}")]
         public async Task<IActionResult> GetLeaderboard(int projectId, int pageNumber = 1, int pageSize = 10)
         {
@@ -46,7 +46,8 @@ namespace SonicPoints.Controllers
                 {
                     var leaderboard = await _leaderboardRepository.GetLeaderboardByProjectAsync(projectId);
                     if (leaderboard == null || !leaderboard.Any())
-                        return NotFound("No leaderboard data found for this project.");
+                        return Ok(new List<LeaderboardDto>());
+
 
                     int totalTasksInProject = await _leaderboardRepository.GetTotalTasksInProjectAsync(projectId);
                     totalTasksInProject = Math.Max(totalTasksInProject, 1); // Prevent division by zero
@@ -75,14 +76,15 @@ namespace SonicPoints.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(500, $"Internal server error: {ex.Message}");
+                    return StatusCode(500, new { message = "Internal server error", details = ex.ToString() });
+
                 }
             }
 
             return Ok(cachedLeaderboard);
         }
 
-        // ✅ KPI-Based Redeemable Points Calculation
+        //  KPI-Based Redeemable Points Calculation
         private int CalculateKpiPoints(int pointsEarned, int taskCompletionCount, int redeemedPoints, int rank, int totalTasks)
         {
             double basePoints = pointsEarned * 0.5;

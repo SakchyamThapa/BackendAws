@@ -14,7 +14,9 @@ namespace SonicPoints.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public TaskPriority Priority { get; set; }
         public int ProjectId { get; set; }
-      
+        public string? PointEligibleUserId { get; set; }
+
+
         public Project Project { get; set; }
         public int RewardPoints { get; set; } // Points given when completed
         public DateTime AssignedDate { get; set; }

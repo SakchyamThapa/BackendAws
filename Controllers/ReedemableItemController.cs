@@ -95,7 +95,16 @@ namespace SonicPoints.Controllers
                 var items = await _redeemableItemRepository.GetRedeemableItemsByProjectId(projectId);
 
                 if (items == null || !items.Any())
-                    return NotFound("No redeemable items found for this project.");
+                    return Ok(items.Select(item => new
+                    {
+                        item.Id,
+                        item.Name,
+                        item.Cost,
+                        item.ProjectId,
+                        imageUrl = $"https://localhost:7150/{item.ImageUrl.Replace("\\", "/")}"
+                    }));
+
+
 
                 return Ok(items.Select(item => new
                 {

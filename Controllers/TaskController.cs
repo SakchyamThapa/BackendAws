@@ -53,7 +53,8 @@ namespace SonicPoints.Controllers
             RewardPoints = t.RewardPoints,
             DueDate = t.DueDate,
             AssignedUserId = t.UserId,
-            AssignedUserName = t.User?.UserName
+            AssignedUserName = t.User?.UserName ?? "Unassigned"
+
         };
 
         [HttpPost]
@@ -127,12 +128,15 @@ namespace SonicPoints.Controllers
 
             task.Status = ProjectTaskStatus.Completed;
 
-            var leaderboardEntry = await _leaderboardRepository.GetLeaderboardEntry(taskId, userId);
+            var pointUserId = task.PointEligibleUserId ?? userId;
+
+            var leaderboardEntry = await _leaderboardRepository.GetLeaderboardEntry(taskId, pointUserId);
+
             if (leaderboardEntry == null)
             {
                 leaderboardEntry = new Leaderboard
                 {
-                    UserId = userId,
+                    UserId = pointUserId,
                     TaskId = taskId,
                     PointsEarned = task.RewardPoints,
                     DateCompleted = DateTime.UtcNow
@@ -145,6 +149,7 @@ namespace SonicPoints.Controllers
                 leaderboardEntry.DateCompleted = DateTime.UtcNow;
                 await _leaderboardRepository.UpdateLeaderboardEntry(leaderboardEntry);
             }
+
 
             await _taskRepository.SaveAsync();
             return Ok("✅ Task completed and points awarded.");
@@ -183,6 +188,7 @@ namespace SonicPoints.Controllers
                 return StatusCode(500, " Server error: " + ex.Message);
             }
         }
+        // ... [All existing usings and namespace remain unchanged]
 
         [HttpPost("reorder")]
         public async Task<IActionResult> ReorderTasks([FromBody] List<TaskOrderDto> list)
@@ -191,6 +197,8 @@ namespace SonicPoints.Controllers
                 return BadRequest("⚠️ No tasks provided for reordering.");
 
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            
+
             var updatedTasks = new List<TaskItem>();
 
             foreach (var item in list)
@@ -205,19 +213,61 @@ namespace SonicPoints.Controllers
                 if (!Enum.IsDefined(typeof(ProjectTaskStatus), item.NewStatus))
                     return BadRequest($"⚠️ Invalid status value {item.NewStatus} for task {item.TaskId}.");
 
-                task.Status = (ProjectTaskStatus)item.NewStatus;
+                var newStatus = (ProjectTaskStatus)item.NewStatus;
+                var currentStatus = task.Status;
 
-              
-                if (task.Status == ProjectTaskStatus.InProgress || task.Status == ProjectTaskStatus.Review || task.Status == ProjectTaskStatus.Completed)
+                bool isAdmin = await _projectAuthorization.HasProjectRoleAsync(userId, task.ProjectId, "Admin");
+                bool isManager = await _projectAuthorization.HasProjectRoleAsync(userId, task.ProjectId, "Manager");
+                bool isChecker = await _projectAuthorization.HasProjectRoleAsync(userId, task.ProjectId, "Checker");
+                bool isMember = await _projectAuthorization.HasProjectRoleAsync(userId, task.ProjectId, "Member");
+
+                bool canTransition = false;
+
+                if (isAdmin || isManager)
+                {
+                    // Admin/Manager can do anything except marking completed from non-review
+                    canTransition = currentStatus != ProjectTaskStatus.Completed || newStatus != ProjectTaskStatus.Backlog;
+                    if (newStatus == ProjectTaskStatus.Completed && currentStatus != ProjectTaskStatus.Review)
+                        return BadRequest("✅ Admin/Manager can only mark Completed from Review.");
+                }
+                else if (isChecker)
+                {
+                    if (newStatus == ProjectTaskStatus.Backlog)
+                        canTransition = true;
+                    else if (newStatus == ProjectTaskStatus.Completed && currentStatus == ProjectTaskStatus.Review)
+                        canTransition = true;
+                }
+                else if (isMember)
+                {
+                    if (currentStatus == ProjectTaskStatus.Backlog && newStatus == ProjectTaskStatus.InProgress)
+                        canTransition = true;
+                    else if (currentStatus == ProjectTaskStatus.InProgress && newStatus == ProjectTaskStatus.Review)
+                        canTransition = true;
+                    else if (currentStatus == ProjectTaskStatus.InProgress && newStatus == ProjectTaskStatus.Backlog)
+                        canTransition = true;
+                }
+
+                if (!canTransition)
+                    return Forbid("❌ You are not authorized to make this transition.");
+
+                task.Status = newStatus;
+
+                // Assign or clear user depending on status
+                if (newStatus == ProjectTaskStatus.InProgress)
+                {
+                    task.UserId = userId;
+                    task.PointEligibleUserId = userId; // Track who will earn points
+                }
+                else if (newStatus == ProjectTaskStatus.Review || newStatus == ProjectTaskStatus.Completed)
                 {
                     if (string.IsNullOrEmpty(task.UserId))
-                        task.UserId = userId; 
+                        task.UserId = userId;
                 }
-                else if (task.Status == ProjectTaskStatus.Backlog)
+               
+                else if (newStatus == ProjectTaskStatus.Backlog)
                 {
                     task.UserId = null;
                 }
-
 
                 await _taskRepository.UpdateTaskAsync(task);
                 updatedTasks.Add(task);
@@ -226,6 +276,7 @@ namespace SonicPoints.Controllers
             await _taskRepository.SaveAsync();
             return Ok(updatedTasks.Select(MapToDto));
         }
+
 
         [HttpGet("project/{projectId}/progress-trend")]
         public async Task<IActionResult> GetProjectProgressTrend(int projectId)
@@ -276,9 +327,12 @@ namespace SonicPoints.Controllers
             if (!await _projectAuthorization.HasProjectRoleAsync(userId, projectId, "Admin", "Manager", "Checker", "Member"))
                 return Forbid("⛔ You do not have permission to view tasks in this project.");
 
-            var tasks = await _taskRepository.GetTasksByProjectIdAsync(projectId);
+            var tasks = await _taskRepository.GetTasksByProjectIdAsync(projectId, userId);
             return Ok(tasks.Select(MapToDto));
         }
+
+
+
 
         [HttpGet("{taskId}")]
         public async Task<IActionResult> GetTaskById(int taskId)

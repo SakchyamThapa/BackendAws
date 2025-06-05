@@ -112,16 +112,16 @@ namespace SonicPoints.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-
-            //  Verify the user is part of this project
+            // Verify the user is part of this project
             var isAuthorized = await _projectAuthorization.HasProjectRoleAsync(userId, projectId, "Admin", "Manager", "Checker", "Member");
             if (!isAuthorized)
                 return Forbid("You are not part of this project.");
 
             var allHistory = await _rewardRepository.GetRedeemedHistoryByProjectAsync(projectId);
 
+            // Instead of returning 404, return empty list with 200 OK
             if (allHistory == null || !allHistory.Any())
-                return NotFound("No redeem history found for this project.");
+                return Ok(new List<object>()); // or return Ok([])
 
             var response = allHistory.Select(h => new
             {
