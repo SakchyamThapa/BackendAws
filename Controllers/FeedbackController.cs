@@ -43,19 +43,35 @@ namespace SonicPoints.Controllers
                 SubmittedAt = DateTime.UtcNow,
                 SubmittedByUserId = userId
             };
-
             _context.Feedbacks.Add(feedback);
 
-            // Send email notifications
+            // Email notifications
             await NotifySuperadminAsync($"📩 Feedback submitted for Project ID: {projectId}.\n\nReason: Deleted/Expired.");
             await NotifyProjectAdminsAsync(projectId);
 
-            // Delete the project
+            // Delete related data
+            var relatedTasks = _context.Tasks.Where(t => t.ProjectId == projectId);
+            _context.Tasks.RemoveRange(relatedTasks);
+
+            var projectUsers = _context.ProjectUsers.Where(pu => pu.ProjectId == projectId);
+            _context.ProjectUsers.RemoveRange(projectUsers);
+
+            var leaderboardEntries = _context.Leaderboards.Where(l => l.ProjectId == projectId);
+            _context.Leaderboards.RemoveRange(leaderboardEntries);
+
+            var redeemHistory = _context.RedeemHistory.Where(r => r.ProjectId == projectId);
+            _context.RedeemHistory.RemoveRange(redeemHistory);
+
+            var redeemableItems = _context.RedeemableItems.Where(i => i.ProjectId == projectId);
+            _context.RedeemableItems.RemoveRange(redeemableItems);
+
             _context.Projects.Remove(project);
 
             await _context.SaveChangesAsync();
+
             return Ok(new { message = "✅ Feedback submitted and project deleted." });
         }
+
 
         [HttpGet]
 

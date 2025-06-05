@@ -1,4 +1,6 @@
-﻿namespace SonicPoints.Models
+﻿using SonicPoints.Models;
+
+namespace SonicPoints.Models
 {
     public class Leaderboard
     {
@@ -11,5 +13,7 @@
         public int TaskCompletionCount { get; set; }
         public int RedeemedPoints { get; set; }
         public DateTime? DateCompleted { get; set; }
+        public int ProjectId { get; set; }
+        public Project Project { get; set; }
     }
 }

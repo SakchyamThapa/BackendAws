@@ -8,6 +8,7 @@ using System.Security.Claims;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using QuestPDF.Drawing;
 using System.Text;
 
 namespace SonicPoints.Controllers
@@ -73,8 +74,8 @@ namespace SonicPoints.Controllers
             });
         }
 
-
-        [Authorize(Roles = "Admin,Manager,SuperAdmin")]
+        // Generate project report as PDF
+        [Authorize(Roles = "Admin,Manager,SuperAdmin,Member")]
         [HttpGet("project/{projectId}/download-all-reports")]
         public async Task<IActionResult> DownloadAllReportsAsPdf(int projectId)
         {
@@ -90,11 +91,7 @@ namespace SonicPoints.Controllers
             if (!users.Any())
                 return NotFound("No users in this project.");
 
-            var builder = new StringBuilder();
-
-            builder.AppendLine($"Project Report: {project.Name}");
-            builder.AppendLine($"Generated At: {DateTime.UtcNow}");
-            builder.AppendLine(new string('-', 80));
+            var rows = new List<(string Username, int TasksCompleted, int Points, int Rewards)>();
 
             foreach (var pu in users)
             {
@@ -104,35 +101,74 @@ namespace SonicPoints.Controllers
                 var tasksCompleted = await _context.Tasks
                     .CountAsync(t => t.ProjectId == projectId && t.UserId == uid && t.Status == ProjectTaskStatus.Completed);
 
-                var points = await _context.Leaderboards
-                    .Where(l => l.Task.ProjectId == projectId && l.UserId == uid)
-                    .SumAsync(l => (int?)l.PointsEarned) ?? 0;
+                var points = await (
+                    from l in _context.Leaderboards
+                    join t in _context.Tasks on l.TaskId equals t.Id
+                    where t.ProjectId == projectId && l.UserId == uid
+                    select (int?)l.PointsEarned
+                ).SumAsync() ?? 0;
 
                 var rewards = await _context.RedeemHistory
                     .CountAsync(r => r.ProjectId == projectId && r.UserId == uid);
 
-                builder.AppendLine($"👤 {username} (UserID: {uid})");
-                builder.AppendLine($"- Tasks Completed: {tasksCompleted}");
-                builder.AppendLine($"- Points Earned: {points}");
-                builder.AppendLine($"- Rewards Redeemed: {rewards}");
-                builder.AppendLine(new string('-', 50));
+                rows.Add((username, tasksCompleted, points, rewards));
             }
 
-            var pdfBytes = GeneratePdfBytes(builder.ToString());
+            var pdfBytes = GenerateStructuredPdf(project.Name, rows);
             var fileName = $"project_{projectId}_report.pdf";
             return File(pdfBytes, "application/pdf", fileName);
         }
 
-        // 👇 Place this method inside the same controller class
-        private byte[] GeneratePdfBytes(string content)
+        private byte[] GenerateStructuredPdf(string projectName, List<(string Username, int TasksCompleted, int Points, int Rewards)> data)
         {
-            var document = QuestPDF.Fluent.Document.Create(container =>
+            return Document.Create(container =>
             {
                 container.Page(page =>
                 {
-                    page.Margin(50);
-                    page.Header().Text("SonicPoints Project Report").SemiBold().FontSize(20);
-                    page.Content().Text(content).FontSize(12);
+                    page.Margin(30);
+                    page.Size(PageSizes.A4);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(12));
+
+                    page.Header().Column(col =>
+                    {
+                        col.Item().Text("SonicPoints Project Report").Bold().FontSize(20);
+                        col.Item().Text($"Project: {projectName}");
+                        col.Item().Text($"Generated at: {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss}");
+                    });
+
+                    page.Content().Table(table =>
+                    {
+                        table.ColumnsDefinition(columns =>
+                        {
+                            columns.RelativeColumn(3);
+                            columns.RelativeColumn(2);
+                            columns.RelativeColumn(2);
+                            columns.RelativeColumn(2);
+                        });
+
+                        table.Header(header =>
+                        {
+                            header.Cell().Element(CellStyle).Text("Username").Bold();
+                            header.Cell().Element(CellStyle).Text("Tasks Completed").Bold();
+                            header.Cell().Element(CellStyle).Text("Points Earned").Bold();
+                            header.Cell().Element(CellStyle).Text("Rewards Redeemed").Bold();
+                        });
+
+                        foreach (var (username, tasksCompleted, points, rewards) in data)
+                        {
+                            table.Cell().Element(CellStyle).Text(username);
+                            table.Cell().Element(CellStyle).Text(tasksCompleted.ToString());
+                            table.Cell().Element(CellStyle).Text(points.ToString());
+                            table.Cell().Element(CellStyle).Text(rewards.ToString());
+                        }
+
+                        static IContainer CellStyle(IContainer container)
+                        {
+                            return container.PaddingVertical(5).PaddingHorizontal(3);
+                        }
+                    });
+
                     page.Footer().AlignCenter().Text(x =>
                     {
                         x.Span("Generated by SonicPoints • Page ");
@@ -141,11 +177,8 @@ namespace SonicPoints.Controllers
                         x.TotalPages();
                     });
                 });
-            });
-
-            return document.GeneratePdf();
+            }).GeneratePdf();
         }
-
 
         [HttpGet]
         [Authorize(Roles = "Admin,Manager")]
@@ -157,10 +190,8 @@ namespace SonicPoints.Controllers
             return Ok(reports);
         }
 
-
-        //  Generate detailed report for a specific project
+        // Generate structured text report (non-PDF)
         [HttpPost("project/{projectId}")]
-        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> GenerateProjectReport(int projectId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -179,8 +210,8 @@ namespace SonicPoints.Controllers
             var reportLines = new List<string>
             {
                 $"Project Report for '{project.Name}'",
-                $" Generated At: {DateTime.UtcNow}",
-                $" Total Users: {users.Count}",
+                $"Generated At: {DateTime.UtcNow}",
+                $"Total Users: {users.Count}",
                 $"-------------------------------------------------------------"
             };
 
