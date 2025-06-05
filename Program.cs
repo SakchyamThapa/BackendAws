@@ -78,9 +78,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy.WithOrigins(
-    "http://127.0.0.1:5500",
-    "http://localhost:5500",
-    "https://main.d3amolag588ltp.amplifyapp.com")
+     "http://127.0.0.1:5500",
+                "http://localhost:5500",
+                "https://main.d3amolag588ltp.amplifyapp.com")
              .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -143,6 +143,8 @@ builder.Services.AddTransient<IRewardRepository, RewardRepository>();
 builder.Services.AddTransient<ILeaderboardRepository, LeaderboardRepository>();
 builder.Services.AddTransient<IRedeemableItemRepository, RedeemableItemRepository>();
 builder.Services.AddTransient<IProjectAuthorizationService, ProjectAuthorizationService>();
+builder.Services.AddScoped<IChatRepository, ChatRepository>();
+
 
 builder.Services.AddMemoryCache();
 builder.Services.AddEndpointsApiExplorer();

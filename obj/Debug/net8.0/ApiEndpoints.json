@@ -703,6 +703,11 @@
         "Name": "request",
         "Type": "SonicPoints.Dto.ChatRequestDto",
         "IsRequired": true
+      },
+      {
+        "Name": "projectId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

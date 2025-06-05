@@ -8,6 +8,7 @@ using SonicPoints.Services;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace SonicPoints.Controllers
 {
@@ -22,7 +23,7 @@ namespace SonicPoints.Controllers
         private readonly IProjectAuthorizationService _projectAuthorization;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _config;
-
+        private readonly IChatRepository _chatRepository;
 
 
 
@@ -32,7 +33,8 @@ namespace SonicPoints.Controllers
             IProjectRepository projectRepository,
             IProjectAuthorizationService projectAuthorization,
             IHttpClientFactory httpClientFactory,
-            IConfiguration config)
+            IConfiguration config,
+            IChatRepository chatRepository)
         {
             _taskRepository = taskRepository;
             _leaderboardRepository = leaderboardRepository;
@@ -40,6 +42,7 @@ namespace SonicPoints.Controllers
             _projectAuthorization = projectAuthorization;
             _httpClientFactory = httpClientFactory;
             _config = config;
+            _chatRepository = chatRepository;
         }
 
         private TaskDto MapToDto(TaskItem t) => new TaskDto
@@ -390,27 +393,30 @@ namespace SonicPoints.Controllers
 
             return Ok(result);
         }
-        [HttpPost("assistant")]
-        public async Task<IActionResult> TaskAssistant([FromBody] ChatRequestDto request)
-        {
-            var apiKey = _config["OpenAI:ApiKey"];
-            var client = _httpClientFactory.CreateClient();
 
-            client.DefaultRequestHeaders.Authorization =
-                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey);
+
+        [HttpPost("assistant")]
+        public async Task<IActionResult> TaskAssistant([FromBody] ChatRequestDto request, int projectId)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            // Retrieve previous chat history from database
+            var previousMessages = await _chatRepository.GetChatHistoryAsync(projectId, userId);
+
+            var messages = previousMessages.Select(m => new { role = m.Role, content = m.Content }).ToList();
+
+            messages.Add(new { role = "user", content = request.Message });
 
             var payload = new
             {
                 model = "gpt-3.5-turbo",
-                messages = new[]
-                {
-            new { role = "system", content = "You are a helpful assistant for managing project tasks." },
-            new { role = "user", content = request.Message }
-        }
+                messages = messages
             };
 
-            var content = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload),
-                                            Encoding.UTF8, "application/json");
+            // Send request to OpenAI API
+            var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            var client = _httpClientFactory.CreateClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _config["OpenAI:ApiKey"]);
 
             var response = await client.PostAsync("https://api.openai.com/v1/chat/completions", content);
 
@@ -421,8 +427,28 @@ namespace SonicPoints.Controllers
             using var doc = JsonDocument.Parse(json);
             var reply = doc.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
 
+            // Save user message and assistant response to database
+            await _chatRepository.SaveChatMessageAsync(new ChatMessage
+            {
+                UserId = userId,
+                ProjectId = projectId,
+                Role = "user",
+                Content = request.Message,
+                Timestamp = DateTime.UtcNow
+            });
+
+            await _chatRepository.SaveChatMessageAsync(new ChatMessage
+            {
+                UserId = userId,
+                ProjectId = projectId,
+                Role = "assistant",
+                Content = reply,
+                Timestamp = DateTime.UtcNow
+            });
+
             return Ok(new { reply });
         }
+
 
     }
 }
