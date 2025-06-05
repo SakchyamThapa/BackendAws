@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\College Resources\\Fyp project\\SonicPoints\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\dto\\chatrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dto\\chatrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\rewardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\rewardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reedemableitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\dto\\changeroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -131,10 +139,6 @@
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dto\\feedbackdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\dto\\chatrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dto\\chatrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\dto\\assignuserroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dto\\assignuserroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -162,37 +166,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SeedData.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\SeedData.cs",
-              "RelativeDocumentMoniker": "SeedData.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\SeedData.cs",
-              "RelativeToolTip": "SeedData.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAADwvyoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T09:05:40.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-05T04:24:10.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "RewardController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\RewardController.cs",
               "RelativeDocumentMoniker": "Controllers\\RewardController.cs",
@@ -204,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TaskController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\TaskController.cs",
               "RelativeDocumentMoniker": "Controllers\\TaskController.cs",
@@ -212,24 +190,24 @@
               "RelativeToolTip": "Controllers\\TaskController.cs",
               "ViewState": "AgIAAGABAAAAAAAAAAAowHYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:36:03.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-03T19:36:03.618Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "ReportController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
               "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReportController.cs",
               "RelativeToolTip": "Controllers\\ReportController.cs",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAowOsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwJcAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:35:39.416Z"
+              "WhenOpened": "2025-06-03T19:35:39.416Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "ReedemableItemController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReedemableItemController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReedemableItemController.cs",
@@ -241,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "ProjectController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ProjectController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProjectController.cs",
@@ -253,331 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LeaderboardController.cs.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\LeaderboardController.cs.cs",
-              "RelativeDocumentMoniker": "Controllers\\LeaderboardController.cs.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\LeaderboardController.cs.cs",
-              "RelativeToolTip": "Controllers\\LeaderboardController.cs.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAowGAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:33:33.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FeedbackController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\FeedbackController.cs",
-              "RelativeDocumentMoniker": "Controllers\\FeedbackController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\FeedbackController.cs",
-              "RelativeToolTip": "Controllers\\FeedbackController.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAowHoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:33:25.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAswNMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:31:33.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAAowAEBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T18:41:44.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-05T07:39:09.228Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Leaderboard.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Leaderboard.cs",
-              "RelativeDocumentMoniker": "Models\\Leaderboard.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Leaderboard.cs",
-              "RelativeToolTip": "Models\\Leaderboard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:00.118Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Project.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Project.cs",
-              "RelativeDocumentMoniker": "Models\\Project.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Project.cs",
-              "RelativeToolTip": "Models\\Project.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAowC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:01.829Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ProjectUserPoints.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
-              "RelativeDocumentMoniker": "Models\\ProjectUserPoints.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
-              "RelativeToolTip": "Models\\ProjectUserPoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:18.274Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RedeemableItem.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\RedeemableItem.cs",
-              "RelativeDocumentMoniker": "Models\\RedeemableItem.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\RedeemableItem.cs",
-              "RelativeToolTip": "Models\\RedeemableItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:26.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ChangeRoleDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ChangeRoleDto.cs",
-              "RelativeDocumentMoniker": "Dto\\ChangeRoleDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ChangeRoleDto.cs",
-              "RelativeToolTip": "Dto\\ChangeRoleDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:01.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ProjectUser.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUser.cs",
-              "RelativeDocumentMoniker": "Models\\ProjectUser.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUser.cs",
-              "RelativeToolTip": "Models\\ProjectUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:11.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "20250605083455_quantity.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Migrations\\20250605083455_quantity.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250605083455_quantity.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Migrations\\20250605083455_quantity.cs",
-              "RelativeToolTip": "Migrations\\20250605083455_quantity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T08:34:55.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Report.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Report.cs",
-              "RelativeDocumentMoniker": "Models\\Report.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Report.cs",
-              "RelativeToolTip": "Models\\Report.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:31.914Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "TaskItem.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\TaskItem.cs",
-              "RelativeDocumentMoniker": "Models\\TaskItem.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\TaskItem.cs",
-              "RelativeToolTip": "Models\\TaskItem.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAwwCIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:39.83Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:39:55.425Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UserProjectDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\UserProjectDto.cs",
-              "RelativeDocumentMoniker": "Dto\\UserProjectDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\UserProjectDto.cs",
-              "RelativeToolTip": "Dto\\UserProjectDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:39:00.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Feedback.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Feedback.cs",
-              "RelativeDocumentMoniker": "Models\\Feedback.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Feedback.cs",
-              "RelativeToolTip": "Models\\Feedback.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAuwB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:36:38.522Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "TaskDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\TaskDto.cs",
-              "RelativeDocumentMoniker": "Dto\\TaskDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\TaskDto.cs",
-              "RelativeToolTip": "Dto\\TaskDto.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAmwFgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:52.996Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ReportDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ReportDto.cs",
-              "RelativeDocumentMoniker": "Dto\\ReportDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ReportDto.cs",
-              "RelativeToolTip": "Dto\\ReportDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:48.326Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "Dto\\RegisterDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RegisterDto.cs",
-              "RelativeToolTip": "Dto\\RegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:43.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ProjectDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ProjectDto.cs",
-              "RelativeDocumentMoniker": "Dto\\ProjectDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ProjectDto.cs",
-              "RelativeToolTip": "Dto\\ProjectDto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA4wBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:31.403Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "PointDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\PointDto.cs",
-              "RelativeDocumentMoniker": "Dto\\PointDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\PointDto.cs",
-              "RelativeToolTip": "Dto\\PointDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:37:10.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LoginDto.cs",
-              "RelativeDocumentMoniker": "Dto\\LoginDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LoginDto.cs",
-              "RelativeToolTip": "Dto\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:22.092Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "LeaderboardDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LeaderboardDto.cs",
-              "RelativeDocumentMoniker": "Dto\\LeaderboardDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LeaderboardDto.cs",
-              "RelativeToolTip": "Dto\\LeaderboardDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:16.707Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "FeedbackDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\FeedbackDto.cs",
-              "RelativeDocumentMoniker": "Dto\\FeedbackDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\FeedbackDto.cs",
-              "RelativeToolTip": "Dto\\FeedbackDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:12.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "RedeemableItemDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RedeemableItemDto.cs",
-              "RelativeDocumentMoniker": "Dto\\RedeemableItemDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RedeemableItemDto.cs",
-              "RelativeToolTip": "Dto\\RedeemableItemDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:12:35.81Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "AssignUserRoleDto.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\AssignUserRoleDto.cs",
-              "RelativeDocumentMoniker": "Dto\\AssignUserRoleDto.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\AssignUserRoleDto.cs",
-              "RelativeToolTip": "Dto\\AssignUserRoleDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:37:44.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 3,
               "Title": "ChatRequestDto.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ChatRequestDto.cs",
               "RelativeDocumentMoniker": "Dto\\ChatRequestDto.cs",
@@ -589,7 +243,369 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\SeedData.cs",
+              "RelativeDocumentMoniker": "SeedData.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\SeedData.cs",
+              "RelativeToolTip": "SeedData.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADwvyoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T09:05:40.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-05T07:39:09.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-05T04:24:10.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-05T09:57:52.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LeaderboardController.cs.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\LeaderboardController.cs.cs",
+              "RelativeDocumentMoniker": "Controllers\\LeaderboardController.cs.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\LeaderboardController.cs.cs",
+              "RelativeToolTip": "Controllers\\LeaderboardController.cs.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAowGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:33:33.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FeedbackController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\FeedbackController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FeedbackController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\FeedbackController.cs",
+              "RelativeToolTip": "Controllers\\FeedbackController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAowHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:33:25.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAswNMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:31:33.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAANkAAAAAAAAAAAAowAEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:41:44.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Leaderboard.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Leaderboard.cs",
+              "RelativeDocumentMoniker": "Models\\Leaderboard.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Leaderboard.cs",
+              "RelativeToolTip": "Models\\Leaderboard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:00.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Project.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Project.cs",
+              "RelativeDocumentMoniker": "Models\\Project.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Project.cs",
+              "RelativeToolTip": "Models\\Project.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:01.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProjectUserPoints.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
+              "RelativeDocumentMoniker": "Models\\ProjectUserPoints.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
+              "RelativeToolTip": "Models\\ProjectUserPoints.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:18.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RedeemableItem.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\RedeemableItem.cs",
+              "RelativeDocumentMoniker": "Models\\RedeemableItem.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\RedeemableItem.cs",
+              "RelativeToolTip": "Models\\RedeemableItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:26.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ChangeRoleDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ChangeRoleDto.cs",
+              "RelativeDocumentMoniker": "Dto\\ChangeRoleDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ChangeRoleDto.cs",
+              "RelativeToolTip": "Dto\\ChangeRoleDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:01.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ProjectUser.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUser.cs",
+              "RelativeDocumentMoniker": "Models\\ProjectUser.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUser.cs",
+              "RelativeToolTip": "Models\\ProjectUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:11.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "20250605083455_quantity.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Migrations\\20250605083455_quantity.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250605083455_quantity.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Migrations\\20250605083455_quantity.cs",
+              "RelativeToolTip": "Migrations\\20250605083455_quantity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T08:34:55.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Report.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Report.cs",
+              "RelativeDocumentMoniker": "Models\\Report.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Report.cs",
+              "RelativeToolTip": "Models\\Report.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:31.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TaskItem.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\TaskItem.cs",
+              "RelativeDocumentMoniker": "Models\\TaskItem.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\TaskItem.cs",
+              "RelativeToolTip": "Models\\TaskItem.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwCIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:37:39.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:39:55.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UserProjectDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\UserProjectDto.cs",
+              "RelativeDocumentMoniker": "Dto\\UserProjectDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\UserProjectDto.cs",
+              "RelativeToolTip": "Dto\\UserProjectDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:39:00.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Feedback.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Feedback.cs",
+              "RelativeDocumentMoniker": "Models\\Feedback.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Feedback.cs",
+              "RelativeToolTip": "Models\\Feedback.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:36:38.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "TaskDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\TaskDto.cs",
+              "RelativeDocumentMoniker": "Dto\\TaskDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\TaskDto.cs",
+              "RelativeToolTip": "Dto\\TaskDto.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAmwFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:52.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ReportDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ReportDto.cs",
+              "RelativeDocumentMoniker": "Dto\\ReportDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ReportDto.cs",
+              "RelativeToolTip": "Dto\\ReportDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:48.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "Dto\\RegisterDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RegisterDto.cs",
+              "RelativeToolTip": "Dto\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:43.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ProjectDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ProjectDto.cs",
+              "RelativeDocumentMoniker": "Dto\\ProjectDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ProjectDto.cs",
+              "RelativeToolTip": "Dto\\ProjectDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA4wBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:31.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "PointDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\PointDto.cs",
+              "RelativeDocumentMoniker": "Dto\\PointDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\PointDto.cs",
+              "RelativeToolTip": "Dto\\PointDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:37:10.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LoginDto.cs",
+              "RelativeDocumentMoniker": "Dto\\LoginDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LoginDto.cs",
+              "RelativeToolTip": "Dto\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:22.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "LeaderboardDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LeaderboardDto.cs",
+              "RelativeDocumentMoniker": "Dto\\LeaderboardDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LeaderboardDto.cs",
+              "RelativeToolTip": "Dto\\LeaderboardDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:16.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "FeedbackDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\FeedbackDto.cs",
+              "RelativeDocumentMoniker": "Dto\\FeedbackDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\FeedbackDto.cs",
+              "RelativeToolTip": "Dto\\FeedbackDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:38:12.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "RedeemableItemDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RedeemableItemDto.cs",
+              "RelativeDocumentMoniker": "Dto\\RedeemableItemDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RedeemableItemDto.cs",
+              "RelativeToolTip": "Dto\\RedeemableItemDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:12:35.81Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 34,
+              "Title": "AssignUserRoleDto.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\AssignUserRoleDto.cs",
+              "RelativeDocumentMoniker": "Dto\\AssignUserRoleDto.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\AssignUserRoleDto.cs",
+              "RelativeToolTip": "Dto\\AssignUserRoleDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:37:44.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "RedeemDto.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\RedeemDto.cs",
               "RelativeDocumentMoniker": "Dto\\RedeemDto.cs",
@@ -601,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "RedeemHistory.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\RedeemHistory.cs",
               "RelativeDocumentMoniker": "Models\\RedeemHistory.cs",
@@ -613,7 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "20250605041823_AddQuantityToRedeemHistoryAndItem.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Migrations\\20250605041823_AddQuantityToRedeemHistoryAndItem.cs",
               "RelativeDocumentMoniker": "Migrations\\20250605041823_AddQuantityToRedeemHistoryAndItem.cs",

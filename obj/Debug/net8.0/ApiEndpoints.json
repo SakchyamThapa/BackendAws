@@ -73,6 +73,16 @@
   },
   {
     "ContainingType": "SonicPoints.Controllers.FeedbackController",
+    "Method": "GetAllFeedback",
+    "RelativePath": "api/feedback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SonicPoints.Controllers.FeedbackController",
     "Method": "GetAllFeedbackForProject",
     "RelativePath": "api/feedback/project/{projectId}",
     "HttpMethod": "GET",
@@ -89,12 +99,17 @@
   },
   {
     "ContainingType": "SonicPoints.Controllers.FeedbackController",
-    "Method": "SubmitFeedback",
-    "RelativePath": "api/feedback/submit",
+    "Method": "SubmitProjectFeedback",
+    "RelativePath": "api/feedback/submit/{projectId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "projectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "dto",
         "Type": "SonicPoints.DTOs.FeedbackDto",
@@ -462,6 +477,16 @@
   },
   {
     "ContainingType": "SonicPoints.Controllers.ReportController",
+    "Method": "GetAllReports",
+    "RelativePath": "api/reports",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SonicPoints.Controllers.ReportController",
     "Method": "GenerateReport",
     "RelativePath": "api/reports/generate",
     "HttpMethod": "POST",
@@ -475,6 +500,22 @@
     "Method": "GenerateProjectReport",
     "RelativePath": "api/reports/project/{projectId}",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SonicPoints.Controllers.ReportController",
+    "Method": "DownloadAllReportsAsPdf",
+    "RelativePath": "api/reports/project/{projectId}/download-all-reports",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

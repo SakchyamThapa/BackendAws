@@ -79,6 +79,10 @@
               "target": "Package",
               "version": "[8.6.4, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"

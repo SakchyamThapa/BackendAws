@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ybQfrD3qlRk=",
+  "dgSpecHash": "9vzYjzAM6NE=",
   "success": true,
   "projectFilePath": "D:\\College Resources\\Fyp project\\SonicPoints\\SonicPoints.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\LEGION\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\openai-dotnet\\8.6.4\\openai-dotnet.8.6.4.nupkg.sha512",
+    "C:\\Users\\LEGION\\.nuget\\packages\\questpdf\\2025.5.0\\questpdf.2025.5.0.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
