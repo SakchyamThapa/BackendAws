@@ -67,6 +67,18 @@
         }
       }
     },
+    "/api/auth/test-password": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/auth/protected": {
       "get": {
         "tags": [

@@ -62,6 +62,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SonicPoints.Controllers.AuthenticationController",
+    "Method": "TestPassword",
+    "RelativePath": "api/auth/test-password",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SonicPoints.Controllers.FeedbackController",
     "Method": "GetAllFeedbackForProject",
     "RelativePath": "api/feedback/project/{projectId}",
