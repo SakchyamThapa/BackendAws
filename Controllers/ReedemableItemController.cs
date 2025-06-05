@@ -70,7 +70,8 @@ namespace SonicPoints.Controllers
                     Name = dto.Name,
                     Cost = dto.Cost,
                     ProjectId = dto.ProjectId,
-                    ImageUrl = storedPath
+                    ImageUrl = storedPath,
+                    Quantity = dto.Quantity
                 };
 
                 var createdItem = await _redeemableItemRepository.AddRedeemableItemAsync(redeemableItem);

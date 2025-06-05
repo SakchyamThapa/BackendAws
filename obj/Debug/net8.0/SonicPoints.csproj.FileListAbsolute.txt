@@ -461,3 +461,5 @@ D:\College Resources\Fyp project\SonicPoints\obj\Debug\net8.0\refint\SonicPoints
 D:\College Resources\Fyp project\SonicPoints\obj\Debug\net8.0\SonicPoints.pdb
 D:\College Resources\Fyp project\SonicPoints\obj\Debug\net8.0\SonicPoints.genruntimeconfig.cache
 D:\College Resources\Fyp project\SonicPoints\obj\Debug\net8.0\ref\SonicPoints.dll
+D:\College Resources\Fyp project\SonicPoints\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\College Resources\Fyp project\SonicPoints\bin\Debug\net8.0\OpenAI-DotNet.dll

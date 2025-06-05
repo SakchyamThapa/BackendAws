@@ -76,8 +76,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500", "https://main.d3amolag588ltp.amplifyapp.com")
-              .AllowAnyHeader()
+        policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500")
+             .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
     });
@@ -143,7 +143,7 @@ builder.Services.AddTransient<IProjectAuthorizationService, ProjectAuthorization
 builder.Services.AddMemoryCache();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
-
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // ------------------ GLOBAL EXCEPTION HANDLING (for large files) ------------------
@@ -159,22 +159,64 @@ app.Use(async (context, next) =>
         await context.Response.WriteAsync("Upload failed: File too large or malformed request.");
     }
 });
-
-// ------------------ ROLE SEEDING ------------------
-async Task EnsureRolesCreatedAsync(WebApplication app)
+// ------------------ ROLE + SUPERADMIN SEEDING ------------------
+async Task EnsureRolesAndSuperadminCreatedAsync(WebApplication app)
 {
+    Console.WriteLine("🔥 Seeding started");
+
     using var scope = app.Services.CreateScope();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    string[] roles = { "Admin", "Manager", "Checker", "Member" };
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+    string[] roles = { "Admin", "Manager", "Checker", "Member", "SuperAdmin" };
+
     foreach (var role in roles)
     {
         if (!await roleManager.RoleExistsAsync(role))
         {
-            await roleManager.CreateAsync(new IdentityRole(role));
-            Console.WriteLine($"✅ Role '{role}' created.");
+            var result = await roleManager.CreateAsync(new IdentityRole(role));
+            Console.WriteLine($"✅ Created role: {role} = {result.Succeeded}");
+        }
+        else
+        {
+            Console.WriteLine($"ℹ️ Role exists: {role}");
         }
     }
+
+    var email = "sakchyamthapa4@gmail.com";
+    var existingUser = await userManager.FindByEmailAsync(email);
+    if (existingUser != null)
+    {
+        Console.WriteLine("⚠️ Superadmin already exists");
+        return;
+    }
+
+    var superadmin = new User
+    {
+        UserName = "superadmin",
+        Email = email,
+        EmailConfirmed = true
+    };
+
+    Console.WriteLine("👷 Creating superadmin...");
+
+    var resultUser = await userManager.CreateAsync(superadmin, "Test1234!");
+    if (!resultUser.Succeeded)
+    {
+        Console.WriteLine("❌ Error creating superadmin:");
+        foreach (var e in resultUser.Errors)
+        {
+            Console.WriteLine($"   • {e.Code}: {e.Description}");
+        }
+        return;
+    }
+
+    var roleResult = await userManager.AddToRoleAsync(superadmin, "SuperAdmin");
+    Console.WriteLine($"✅ Superadmin role assigned: {roleResult.Succeeded}");
+    Console.WriteLine("🎉 Seeding complete");
 }
+
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -187,17 +229,16 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-await EnsureRolesCreatedAsync(app);
+await EnsureRolesAndSuperadminCreatedAsync(app);
+
 
 app.UseHttpsRedirection();
-
-
 app.UseRouting();
 app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseStaticFiles(); // default wwwroot
-// Ensure "Redeemable Items" folder exists
+app.UseStaticFiles();
+
 var redeemFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Redeemable Items");
 if (!Directory.Exists(redeemFolderPath))
 {

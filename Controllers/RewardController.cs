@@ -38,7 +38,7 @@ namespace SonicPoints.Controllers
             _context = context;
         }
 
-        // ✅ Redeem a reward
+        //  Redeem a reward
         [HttpPost("redeem")]
         public async Task<IActionResult> RedeemReward([FromBody] RedeemRequestDto redeemDto)
         {
@@ -106,14 +106,14 @@ namespace SonicPoints.Controllers
 
             return Ok(redeemedRewards);
         }
-        // ✅ Show redemption history for all users in a project (accessible to project members)
+        //  Show redemption history for all users in a project (accessible to project members)
         [HttpGet("history/{projectId}")]
         public async Task<IActionResult> GetMyProjectRedeemHistory(int projectId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
 
-            // ✅ Verify the user is part of this project
+            //  Verify the user is part of this project
             var isAuthorized = await _projectAuthorization.HasProjectRoleAsync(userId, projectId, "Admin", "Manager", "Checker", "Member");
             if (!isAuthorized)
                 return Forbid("You are not part of this project.");

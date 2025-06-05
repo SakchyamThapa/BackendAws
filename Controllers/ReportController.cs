@@ -20,7 +20,7 @@ namespace SonicPoints.Controllers
             _context = context;
         }
 
-        // ✅ Generate personal user report
+        // Generate personal user report
         [HttpPost("generate")]
         public async Task<IActionResult> GenerateReport()
         {
@@ -72,7 +72,7 @@ namespace SonicPoints.Controllers
 
       
 
-        // ✅ Generate detailed report for a specific project
+        //  Generate detailed report for a specific project
         [HttpPost("project/{projectId}")]
         [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> GenerateProjectReport(int projectId)

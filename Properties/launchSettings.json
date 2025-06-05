@@ -9,22 +9,12 @@
         }
     },
     "profiles": {
-        "SonicPoints (HTTPS)": {
-            "commandName": "Project",
-            "dotnetRunMessages": true,
-            "launchBrowser": true,
-            "launchUrl": "",
-            "applicationUrl": "https://localhost:7150;http://localhost:5020",
-            "environmentVariables": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            }
-        },
         "SonicPoints": {
             "commandName": "Project",
             "dotnetRunMessages": true,
             "launchBrowser": true,
-            "launchUrl": "",
-            "applicationUrl": "https://localhost:7150;http://localhost:5150",
+            "launchUrl": "swagger",
+            "applicationUrl": "https://localhost:7150;http://localhost:5085",
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }

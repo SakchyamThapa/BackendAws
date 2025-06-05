@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SonicPoints.Dto;
 using SonicPoints.DTOs;
 using SonicPoints.Models;
 using SonicPoints.Repositories;
 using SonicPoints.Services;
 using System.Security.Claims;
+using System.Text.Json;
+using System.Text;
 
 namespace SonicPoints.Controllers
 {
@@ -17,17 +20,26 @@ namespace SonicPoints.Controllers
         private readonly ILeaderboardRepository _leaderboardRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectAuthorizationService _projectAuthorization;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _config;
+
+
+
 
         public TaskController(
             ITaskRepository taskRepository,
             ILeaderboardRepository leaderboardRepository,
             IProjectRepository projectRepository,
-            IProjectAuthorizationService projectAuthorization)
+            IProjectAuthorizationService projectAuthorization,
+            IHttpClientFactory httpClientFactory,
+            IConfiguration config)
         {
             _taskRepository = taskRepository;
             _leaderboardRepository = leaderboardRepository;
             _projectRepository = projectRepository;
             _projectAuthorization = projectAuthorization;
+            _httpClientFactory = httpClientFactory;
+            _config = config;
         }
 
         private TaskDto MapToDto(TaskItem t) => new TaskDto
@@ -323,6 +335,39 @@ namespace SonicPoints.Controllers
             }
 
             return Ok(result);
+        }
+        [HttpPost("assistant")]
+        public async Task<IActionResult> TaskAssistant([FromBody] ChatRequestDto request)
+        {
+            var apiKey = _config["OpenAI:ApiKey"];
+            var client = _httpClientFactory.CreateClient();
+
+            client.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey);
+
+            var payload = new
+            {
+                model = "gpt-3.5-turbo",
+                messages = new[]
+                {
+            new { role = "system", content = "You are a helpful assistant for managing project tasks." },
+            new { role = "user", content = request.Message }
+        }
+            };
+
+            var content = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload),
+                                            Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("https://api.openai.com/v1/chat/completions", content);
+
+            if (!response.IsSuccessStatusCode)
+                return StatusCode((int)response.StatusCode, await response.Content.ReadAsStringAsync());
+
+            var json = await response.Content.ReadAsStringAsync();
+            using var doc = JsonDocument.Parse(json);
+            var reply = doc.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
+
+            return Ok(new { reply });
         }
 
     }

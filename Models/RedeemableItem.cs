@@ -6,13 +6,15 @@ namespace SonicPoints.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Cost { get; set; }  // Points required
-        public int ProjectId { get; set; } // Only available in the specific project
+        public int Cost { get; set; }           // Points required per unit
+        public int ProjectId { get; set; }      // Only available in the specific project
+        public string ImageUrl { get; set; }
 
-        public string ImageUrl { get; set; } // ✅ URL to the image file
+        public int Quantity { get; set; }       
 
         [JsonIgnore]
         public Project Project { get; set; }
     }
+
 
 }

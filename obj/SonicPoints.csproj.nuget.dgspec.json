@@ -75,6 +75,10 @@
               "target": "Package",
               "version": "[8.0.3, )"
             },
+            "OpenAI-DotNet": {
+              "target": "Package",
+              "version": "[8.6.4, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"

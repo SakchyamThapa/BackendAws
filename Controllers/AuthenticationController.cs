@@ -5,8 +5,6 @@ using Microsoft.IdentityModel.Tokens;
 using SonicPoints.DTOs;
 using SonicPoints.Models;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net.Mail;
-using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -52,55 +50,32 @@ namespace SonicPoints.Controllers
 
             await _userManager.AddToRoleAsync(user, "Member");
 
-            // Send registration email with login link
-            var loginUrl = "https://localhost:7150/index.html"; // Adjust if needed
-            var emailBody = $"Hello {user.UserName},<br><br>Your account has been successfully registered! You can log in using the following link:<br><a href='{loginUrl}'>Login Here</a>";
-
-            // SMTP settings from appsettings.json
-            var smtpSettings = _configuration.GetSection("SmtpSettings");
-            var smtpHost = smtpSettings["Host"];
-            var smtpPort = int.Parse(smtpSettings["Port"]);
-            var smtpUsername = smtpSettings["Username"];
-            var smtpPassword = smtpSettings["Password"];
-            var smtpEnableSsl = bool.Parse(smtpSettings["EnableSsl"]);
-
-            using (var smtpClient = new SmtpClient(smtpHost, smtpPort))
-            {
-                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                smtpClient.EnableSsl = smtpEnableSsl;
-
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress(smtpUsername),
-                    Subject = "Account Registered and Ready to Login",
-                    Body = emailBody,
-                    IsBodyHtml = true
-                };
-
-                mailMessage.To.Add(user.Email);
-
-                try
-                {
-                    await smtpClient.SendMailAsync(mailMessage);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(new { success = false, message = "Error sending email: " + ex.Message });
-                }
-            }
-
             return Ok(new { success = true, message = "Registration successful", role = "Member" });
         }
-
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
+            Console.WriteLine($"🔐 Login attempt for: {model.Email}");
+
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
+            if (user == null)
+            {
+                Console.WriteLine("❌ User not found.");
                 return Unauthorized(new { success = false, message = "Invalid email or password" });
+            }
 
+            Console.WriteLine($"✅ Found user: {user.Email}");
+
+            bool passwordValid = await _userManager.CheckPasswordAsync(user, model.Password);
+            Console.WriteLine($"🔑 Password check result: {passwordValid}");
+
+            if (!passwordValid)
+            {
+                Console.WriteLine("❌ Invalid password.");
+                return Unauthorized(new { success = false, message = "Invalid email or password" });
+            }
+            var roles = await _userManager.GetRolesAsync(user);
             var token = await GenerateJwtToken(user);
-
             return Ok(new
             {
                 success = true,
@@ -108,8 +83,21 @@ namespace SonicPoints.Controllers
                 token,
                 userId = user.Id,
                 username = user.UserName,
-                email = user.Email
+                email = user.Email,
+                roles = roles
             });
+        }
+
+
+        [HttpGet("test-password")]
+        public async Task<IActionResult> TestPassword()
+        {
+            var user = await _userManager.FindByEmailAsync("sakchyamthapa4@gmail.com");
+            if (user == null)
+                return NotFound("User not found");
+
+            var passwordCorrect = await _userManager.CheckPasswordAsync(user, "Test1234!");
+            return Ok(new { passwordCorrect });
         }
 
         [Authorize]

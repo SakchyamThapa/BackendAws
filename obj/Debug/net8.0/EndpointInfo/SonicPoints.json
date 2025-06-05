@@ -532,6 +532,10 @@
                   "ImageUrl": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "Quantity": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -546,6 +550,9 @@
                   "style": "form"
                 },
                 "ImageUrl": {
+                  "style": "form"
+                },
+                "Quantity": {
                   "style": "form"
                 }
               }
@@ -618,6 +625,10 @@
                   "ImageUrl": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "Quantity": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -632,6 +643,9 @@
                   "style": "form"
                 },
                 "ImageUrl": {
+                  "style": "form"
+                },
+                "Quantity": {
                   "style": "form"
                 }
               }
@@ -1133,6 +1147,37 @@
           }
         }
       }
+    },
+    "/api/tasks/assistant": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1145,6 +1190,16 @@
             "nullable": true
           },
           "newRole": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChatRequestDto": {
+        "type": "object",
+        "properties": {
+          "message": {
             "type": "string",
             "nullable": true
           }

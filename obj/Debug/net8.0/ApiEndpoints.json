@@ -341,6 +341,11 @@
         "Name": "ImageUrl",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
+      },
+      {
+        "Name": "Quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -403,6 +408,11 @@
       {
         "Name": "ImageUrl",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantity",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -615,6 +625,22 @@
       {
         "Name": "updateTaskDto",
         "Type": "SonicPoints.DTOs.UpdateTaskDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SonicPoints.Controllers.TaskController",
+    "Method": "TaskAssistant",
+    "RelativePath": "api/tasks/assistant",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SonicPoints.Dto.ChatRequestDto",
         "IsRequired": true
       }
     ],
