@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using SonicPoints.Data;
 using SonicPoints.Dto;
 using SonicPoints.Models;
 using SonicPoints.Repositories;
@@ -17,15 +18,19 @@ namespace SonicPoints.Controllers
         private readonly ILeaderboardRepository _leaderboardRepository;
         private readonly IMemoryCache _cache;
         private readonly IProjectAuthorizationService _projectAuthorization;
+        private readonly AppDbContext _context;
+
 
         public LeaderboardController(
             ILeaderboardRepository leaderboardRepository,
             IMemoryCache cache,
-            IProjectAuthorizationService projectAuthorization)
+            IProjectAuthorizationService projectAuthorization,
+            AppDbContext context)
         {
             _leaderboardRepository = leaderboardRepository;
             _cache = cache;
             _projectAuthorization = projectAuthorization;
+            _context = context;
         }
 
         //  Get Leaderboard by Project with Pagination and Caching
@@ -53,21 +58,29 @@ namespace SonicPoints.Controllers
                     totalTasksInProject = Math.Max(totalTasksInProject, 1); // Prevent division by zero
 
                     var pagedLeaderboard = leaderboard
-                        .OrderByDescending(l => l.PointsEarned)
-                        .Skip((pageNumber - 1) * pageSize)
-                        .Take(pageSize)
-                        .Select((l, index) => new LeaderboardDto
-                        {
-                            UserId = l.UserId,
-                            UserName = l.User.UserName,
-                            PointsEarned = l.PointsEarned,
-                            TaskCompletionCount = l.TaskCompletionCount,
-                            RedeemedPoints = l.RedeemedPoints,
-                            LeaderboardRank = index + 1 + ((pageNumber - 1) * pageSize),
-                            ProjectProgress = (l.TaskCompletionCount / (double)totalTasksInProject) * 100,
-                            RedeemablePoints = CalculateKpiPoints(l.PointsEarned, l.TaskCompletionCount, l.RedeemedPoints, index + 1, totalTasksInProject)
-                        })
-                        .ToList();
+                      .OrderByDescending(l => l.PointsEarned)
+                      .Skip((pageNumber - 1) * pageSize)
+                      .Take(pageSize)
+                      .ToList() // Force materialization before calling _context
+                      .Select((l, index) => new LeaderboardDto
+                      {
+                          UserId = l.UserId,
+                          UserName = l.User.UserName,
+                          PointsEarned = l.PointsEarned,
+                          TaskCompletionCount = l.TaskCompletionCount,
+                          RedeemedPoints = l.RedeemedPoints,
+                          LeaderboardRank = index + 1 + ((pageNumber - 1) * pageSize),
+                          ProjectProgress = (l.TaskCompletionCount / (double)totalTasksInProject) * 100,
+                          RedeemablePoints = CalculateKpiPoints(l.PointsEarned, l.TaskCompletionCount, l.RedeemedPoints, index + 1, totalTasksInProject),
+
+                          TotalPoints = _context.ProjectUserPoints
+                              .Where(p => p.ProjectId == projectId && p.UserId == l.UserId)
+                              .Select(p => p.TotalPoints)
+                              .FirstOrDefault()
+                      })
+                      .ToList();
+
+
 
                     if (pagedLeaderboard.Any())
                         _cache.Set(cacheKey, pagedLeaderboard, TimeSpan.FromMinutes(10));

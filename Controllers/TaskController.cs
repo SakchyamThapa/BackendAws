@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SonicPoints.Dto;
 using SonicPoints.DTOs;
+using Microsoft.EntityFrameworkCore;
+
 using SonicPoints.Models;
 using SonicPoints.Repositories;
 using SonicPoints.Services;
@@ -9,6 +11,7 @@ using System.Security.Claims;
 using System.Text.Json;
 using System.Text;
 using System.Net.Http.Headers;
+using SonicPoints.Data;
 
 namespace SonicPoints.Controllers
 {
@@ -24,6 +27,8 @@ namespace SonicPoints.Controllers
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _config;
         private readonly IChatRepository _chatRepository;
+        private readonly AppDbContext _context;
+
 
 
 
@@ -34,7 +39,8 @@ namespace SonicPoints.Controllers
             IProjectAuthorizationService projectAuthorization,
             IHttpClientFactory httpClientFactory,
             IConfiguration config,
-            IChatRepository chatRepository)
+            IChatRepository chatRepository,
+            AppDbContext context)
         {
             _taskRepository = taskRepository;
             _leaderboardRepository = leaderboardRepository;
@@ -43,6 +49,7 @@ namespace SonicPoints.Controllers
             _httpClientFactory = httpClientFactory;
             _config = config;
             _chatRepository = chatRepository;
+            _context = context;
         }
 
         private TaskDto MapToDto(TaskItem t) => new TaskDto
@@ -91,6 +98,53 @@ namespace SonicPoints.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+        private async Task AwardPointsIfEligible(TaskItem task)
+        {
+            if (string.IsNullOrEmpty(task.PointEligibleUserId)) return;
+            var userId = task.PointEligibleUserId;
+            var points = task.RewardPoints;
+
+            var entry = await _leaderboardRepository.GetLeaderboardEntry(task.Id, userId);
+
+            if (entry == null)
+            {
+                entry = new Leaderboard
+                {
+                    UserId = userId,
+                    TaskId = task.Id,
+                    PointsEarned = points,
+                    DateCompleted = DateTime.UtcNow,
+                    ProjectId = task.ProjectId
+                };
+                await _leaderboardRepository.AddLeaderboardEntry(entry);
+            }
+            else
+            {
+                entry.PointsEarned += points;
+                entry.DateCompleted = DateTime.UtcNow;
+                await _leaderboardRepository.UpdateLeaderboardEntry(entry);
+            }
+
+            // 🔁 UPDATE ProjectUserPoints table
+            var userPointsEntry = await _context.ProjectUserPoints
+                .FirstOrDefaultAsync(p => p.UserId == userId && p.ProjectId == task.ProjectId);
+
+            if (userPointsEntry == null)
+            {
+                _context.ProjectUserPoints.Add(new ProjectUserPoints
+                {
+                    UserId = userId,
+                    ProjectId = task.ProjectId,
+                    TotalPoints = points
+                });
+            }
+            else
+            {
+                userPointsEntry.TotalPoints += points;
+            }
+
+            await _context.SaveChangesAsync();
+        }
 
         [HttpPut("{taskId}/status")]
         public async Task<IActionResult> UpdateTaskStatus(int taskId, [FromBody] UpdateTaskDto updateTaskDto)
@@ -131,7 +185,11 @@ namespace SonicPoints.Controllers
 
             task.Status = ProjectTaskStatus.Completed;
 
-            var pointUserId = task.PointEligibleUserId ?? userId;
+            if (string.IsNullOrEmpty(task.PointEligibleUserId))
+                return BadRequest("❌ No user is eligible for points. Task might not have been properly claimed.");
+
+            var pointUserId = task.PointEligibleUserId;
+
 
             var leaderboardEntry = await _leaderboardRepository.GetLeaderboardEntry(taskId, pointUserId);
 
@@ -142,7 +200,8 @@ namespace SonicPoints.Controllers
                     UserId = pointUserId,
                     TaskId = taskId,
                     PointsEarned = task.RewardPoints,
-                    DateCompleted = DateTime.UtcNow
+                    DateCompleted = DateTime.UtcNow,
+                    ProjectId = task.ProjectId
                 };
                 await _leaderboardRepository.AddLeaderboardEntry(leaderboardEntry);
             }
@@ -191,8 +250,6 @@ namespace SonicPoints.Controllers
                 return StatusCode(500, " Server error: " + ex.Message);
             }
         }
-        // ... [All existing usings and namespace remain unchanged]
-
         [HttpPost("reorder")]
         public async Task<IActionResult> ReorderTasks([FromBody] List<TaskOrderDto> list)
         {
@@ -200,8 +257,6 @@ namespace SonicPoints.Controllers
                 return BadRequest("⚠️ No tasks provided for reordering.");
 
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            
-
             var updatedTasks = new List<TaskItem>();
 
             foreach (var item in list)
@@ -213,9 +268,6 @@ namespace SonicPoints.Controllers
                 if (task == null)
                     continue;
 
-                if (!Enum.IsDefined(typeof(ProjectTaskStatus), item.NewStatus))
-                    return BadRequest($"⚠️ Invalid status value {item.NewStatus} for task {item.TaskId}.");
-
                 var newStatus = (ProjectTaskStatus)item.NewStatus;
                 var currentStatus = task.Status;
 
@@ -225,28 +277,22 @@ namespace SonicPoints.Controllers
                 bool isMember = await _projectAuthorization.HasProjectRoleAsync(userId, task.ProjectId, "Member");
 
                 bool canTransition = false;
-
                 if (isAdmin || isManager)
                 {
-                    // Admin/Manager can do anything except marking completed from non-review
                     canTransition = currentStatus != ProjectTaskStatus.Completed || newStatus != ProjectTaskStatus.Backlog;
                     if (newStatus == ProjectTaskStatus.Completed && currentStatus != ProjectTaskStatus.Review)
                         return BadRequest("✅ Admin/Manager can only mark Completed from Review.");
                 }
                 else if (isChecker)
                 {
-                    if (newStatus == ProjectTaskStatus.Backlog)
-                        canTransition = true;
-                    else if (newStatus == ProjectTaskStatus.Completed && currentStatus == ProjectTaskStatus.Review)
+                    if (newStatus == ProjectTaskStatus.Backlog || (newStatus == ProjectTaskStatus.Completed && currentStatus == ProjectTaskStatus.Review))
                         canTransition = true;
                 }
                 else if (isMember)
                 {
-                    if (currentStatus == ProjectTaskStatus.Backlog && newStatus == ProjectTaskStatus.InProgress)
-                        canTransition = true;
-                    else if (currentStatus == ProjectTaskStatus.InProgress && newStatus == ProjectTaskStatus.Review)
-                        canTransition = true;
-                    else if (currentStatus == ProjectTaskStatus.InProgress && newStatus == ProjectTaskStatus.Backlog)
+                    if ((currentStatus == ProjectTaskStatus.Backlog && newStatus == ProjectTaskStatus.InProgress) ||
+                        (currentStatus == ProjectTaskStatus.InProgress && newStatus == ProjectTaskStatus.Review) ||
+                        (currentStatus == ProjectTaskStatus.InProgress && newStatus == ProjectTaskStatus.Backlog))
                         canTransition = true;
                 }
 
@@ -255,22 +301,25 @@ namespace SonicPoints.Controllers
 
                 task.Status = newStatus;
 
-                // Assign or clear user depending on status
                 if (newStatus == ProjectTaskStatus.InProgress)
                 {
                     task.UserId = userId;
-                    task.PointEligibleUserId = userId; // Track who will earn points
+                    if (string.IsNullOrEmpty(task.PointEligibleUserId))
+                        task.PointEligibleUserId = userId;
                 }
                 else if (newStatus == ProjectTaskStatus.Review || newStatus == ProjectTaskStatus.Completed)
                 {
                     if (string.IsNullOrEmpty(task.UserId))
                         task.UserId = userId;
                 }
-               
                 else if (newStatus == ProjectTaskStatus.Backlog)
                 {
                     task.UserId = null;
+                    task.PointEligibleUserId = null;
                 }
+
+                if (currentStatus == ProjectTaskStatus.Review && newStatus == ProjectTaskStatus.Completed)
+                    await AwardPointsIfEligible(task);
 
                 await _taskRepository.UpdateTaskAsync(task);
                 updatedTasks.Add(task);
@@ -279,6 +328,7 @@ namespace SonicPoints.Controllers
             await _taskRepository.SaveAsync();
             return Ok(updatedTasks.Select(MapToDto));
         }
+
 
 
         [HttpGet("project/{projectId}/progress-trend")]

@@ -9,6 +9,8 @@
         public int RedeemedPoints { get; set; }
         public DateTime? DateCompleted { get; set; }  // Add the DateCompleted field
         public int LeaderboardRank { get; set; }
+        public int TotalPoints { get; set; }
+
         public double ProjectProgress { get; set; }
         public int RedeemablePoints { get; set; }
     }
