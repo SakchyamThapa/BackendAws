@@ -72,6 +72,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SonicPoints.Controllers.AuthenticationController",
+    "Method": "GetUsers",
+    "RelativePath": "api/auth/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SonicPoints.Controllers.FeedbackController",
     "Method": "GetAllFeedback",
     "RelativePath": "api/feedback",

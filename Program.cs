@@ -15,7 +15,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseUrls("http://*:5085");
+//builder.WebHost.UseUrls("http://*:5085");
 
 
 // ------------------ DATABASE & IDENTITY ------------------
@@ -76,7 +76,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500", "https://main.d3amolag588ltp.amplifyapp.com/")
+        policy.WithOrigins(
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://main.d3amolag588ltp.amplifyapp.com")
              .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -185,20 +188,45 @@ async Task EnsureRolesAndSuperadminCreatedAsync(WebApplication app)
 
     var email = "sakchyamthapa4@gmail.com";
     var existingUser = await userManager.FindByEmailAsync(email);
+
     if (existingUser != null)
     {
-        Console.WriteLine("⚠️ Superadmin already exists");
+        Console.WriteLine("⚠️ Superadmin already exists - resetting password...");
+
+        var resetToken = await userManager.GeneratePasswordResetTokenAsync(existingUser);
+        var resetResult = await userManager.ResetPasswordAsync(existingUser, resetToken, "Test1234!");
+
+
+        if (resetResult.Succeeded)
+        {
+            Console.WriteLine("✅ Password reset to Test1234!");
+        }
+        else
+        {
+            Console.WriteLine("❌ Failed to reset password:");
+            foreach (var error in resetResult.Errors)
+            {
+                Console.WriteLine($"   • {error.Code}: {error.Description}");
+            }
+        }
+
+        // ✅ Make sure they have the role too (just in case)
+        if (!await userManager.IsInRoleAsync(existingUser, "SuperAdmin"))
+        {
+            await userManager.AddToRoleAsync(existingUser, "SuperAdmin");
+            Console.WriteLine("✅ Superadmin role re-confirmed");
+        }
+
         return;
     }
 
+    // ✅ Create new user
     var superadmin = new User
     {
         UserName = "superadmin",
         Email = email,
         EmailConfirmed = true
     };
-
-    Console.WriteLine("👷 Creating superadmin...");
 
     var resultUser = await userManager.CreateAsync(superadmin, "Test1234!");
     if (!resultUser.Succeeded)
@@ -211,9 +239,10 @@ async Task EnsureRolesAndSuperadminCreatedAsync(WebApplication app)
         return;
     }
 
-    var roleResult = await userManager.AddToRoleAsync(superadmin, "SuperAdmin");
-    Console.WriteLine($"✅ Superadmin role assigned: {roleResult.Succeeded}");
+    var roleAssign = await userManager.AddToRoleAsync(superadmin, "SuperAdmin");
+    Console.WriteLine($"✅ Superadmin role assigned: {roleAssign.Succeeded}");
     Console.WriteLine("🎉 Seeding complete");
+
 }
 
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using SonicPoints.Data;
 using SonicPoints.DTOs;
 using SonicPoints.Models;
 using System.IdentityModel.Tokens.Jwt;
@@ -84,8 +85,14 @@ namespace SonicPoints.Controllers
                 userId = user.Id,
                 username = user.UserName,
                 email = user.Email,
-                roles = roles
+                roles
             });
+        }
+        [HttpGet("users")]
+        public IActionResult GetUsers([FromServices] AppDbContext db)
+        {
+            var users = db.Users.Select(u => new { u.Id, u.UserName, u.Email }).ToList();
+            return Ok(users);
         }
 
 
