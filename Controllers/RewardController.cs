@@ -91,7 +91,7 @@ namespace SonicPoints.Controllers
         }
 
 
-        // ✅ Get Redeemed Rewards History (project-admin only)
+        //  Get Redeemed Rewards History (project-admin only)
         [HttpGet("redeemed/{projectId}")]
         public async Task<IActionResult> GetRedeemedRewards(int projectId)
         {

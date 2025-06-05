@@ -9,6 +9,13 @@ using SonicPoints.Repositories;
 using SonicPoints.Services;
 using System.Globalization;
 using System.Security.Claims;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Formats.Png;
+
 
 namespace SonicPoints.Controllers
 {
@@ -19,24 +26,130 @@ namespace SonicPoints.Controllers
     {
         private readonly IRedeemableItemRepository _redeemableItemRepository;
         private readonly IProjectAuthorizationService _projectAuthorization;
+        private const int MaxImageWidth = 1024;
         private readonly AppDbContext _context;
+        private readonly ILogger<RedeemableItemController> _logger;
 
         public RedeemableItemController(
             IRedeemableItemRepository redeemableItemRepository,
             IProjectAuthorizationService projectAuthorization,
-            AppDbContext context)
+            AppDbContext context,
+            ILogger<RedeemableItemController> logger)
         {
             _redeemableItemRepository = redeemableItemRepository;
             _projectAuthorization = projectAuthorization;
             _context = context;
+            _logger = logger;
         }
 
+        public class ImgBBResponse
+        {
+            public ImgBBData Data { get; set; }
+            public bool Success { get; set; }
+            public int Status { get; set; }
+        }
 
+        public class ImgBBData
+        {
+            public string Id { get; set; }
+            public string Title { get; set; }
+            public string UrlViewer { get; set; }
+            [JsonPropertyName("url")]
+            public string Url { get; set; }
+            public string DisplayUrl { get; set; }
+            public string Width { get; set; }
+            public string Height { get; set; }
+            public string Size { get; set; }
+            public string Time { get; set; }
+            public string Expiration { get; set; }
+            public ImgBBImage Image { get; set; }
+            public ImgBBImage Thumb { get; set; }
+            public ImgBBImage Medium { get; set; }
+            public string DeleteUrl { get; set; }
+        }
 
+        public class ImgBBImage
+        {
+            public string Filename { get; set; }
+            public string Name { get; set; }
+            public string Mime { get; set; }
+            public string Extension { get; set; }
+            public string Url { get; set; }
+        }
+
+        private async Task<byte[]> ResizeImage(IFormFile image, int maxWidth = MaxImageWidth)
+        {
+            using var imageStream = image.OpenReadStream();
+            using var imageToResize = SixLabors.ImageSharp.Image.Load(imageStream);
+
+            // Resize the image to the max width while maintaining the aspect ratio
+            if (imageToResize.Width > maxWidth)
+            {
+                imageToResize.Mutate(x => x.Resize(maxWidth, 0)); // Resize keeping aspect ratio
+            }
+
+            using var outputStream = new MemoryStream();
+            imageToResize.Save(outputStream, new JpegEncoder()); // Save as JPEG
+            return outputStream.ToArray();
+        }
+
+        // Upload image to ImgBB and get URL
+        private async Task<string> UploadToImgBB(IFormFile file)
+        {
+            string apiKey = "9fad27fa86d50d998945b30537ec274d";  // Replace with your actual API key
+            string url = $"https://api.imgbb.com/1/upload?key={apiKey}";
+
+            using var client = new HttpClient();
+            using var content = new MultipartFormDataContent();
+
+            // Create a StreamContent for the file
+            var imageContent = new StreamContent(file.OpenReadStream());
+            content.Add(imageContent, "image", file.FileName);
+
+            // Post the request to ImgBB API
+            var response = await client.PostAsync(url, content);
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogError($"ImgBB upload failed: {await response.Content.ReadAsStringAsync()}");
+                return null;
+            }
+
+            // Deserialize the response body
+            var responseBody = await response.Content.ReadAsStringAsync();
+            _logger.LogInformation("ImgBB Response: {ResponseBody}", responseBody);
+
+            try
+            {
+                // Manually parse the response body using JsonDocument
+                var jsonResponse = JsonDocument.Parse(responseBody);
+
+                // Extract the URL from the response
+                var imgUrl = jsonResponse.RootElement
+                    .GetProperty("data")
+                    .GetProperty("url")
+                    .GetString();
+
+                // Check if the URL exists and return it
+                if (!string.IsNullOrEmpty(imgUrl))
+                {
+                    _logger.LogInformation("ImgBB Image URL: {ImgUrl}", imgUrl);
+                    return imgUrl;
+                }
+                else
+                {
+                    _logger.LogError("ImgBB response does not contain a valid URL.");
+                    return null;
+                }
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError($"Failed to parse ImgBB response: {ex.Message}");
+                return null;
+            }
+        }
 
         [HttpPost("CreateRedeemableItem")]
         [RequestSizeLimit(30 * 1024 * 1024)]
-
         public async Task<IActionResult> CreateRedeemableItem([FromForm] RedeemableItemDto dto)
         {
             try
@@ -49,28 +162,16 @@ namespace SonicPoints.Controllers
                 if (!authorized)
                     return Forbid("You are not authorized to create redeemable items for this project.");
 
-                var projectRoot = Directory.GetCurrentDirectory();
-                var uploadFolder = Path.Combine(projectRoot, "Redeemable Items");
-                Directory.CreateDirectory(uploadFolder);
-
-                string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture);
-                var originalFileName = Path.GetFileName(dto.ImageUrl.FileName);
-                var fileName = $"{timestamp}_{originalFileName}";
-                var filePath = Path.Combine(uploadFolder, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await dto.ImageUrl.CopyToAsync(stream);
-                }
-
-                var storedPath = Path.Combine("Redeemable Items", fileName);
+                var uploadedUrl = await UploadToImgBB(dto.ImageUrl);
+                if (string.IsNullOrEmpty(uploadedUrl))
+                    return StatusCode(500, "Image upload failed.");
 
                 var redeemableItem = new RedeemableItem
                 {
                     Name = dto.Name,
                     Cost = dto.Cost,
                     ProjectId = dto.ProjectId,
-                    ImageUrl = storedPath,
+                    ImageUrl = uploadedUrl,
                     Quantity = dto.Quantity
                 };
 
@@ -85,43 +186,6 @@ namespace SonicPoints.Controllers
                 return StatusCode(500, $"Unexpected error occurred: {ex.Message}");
             }
         }
-
-
-        [HttpGet("project/{projectId}")]
-        public async Task<IActionResult> GetRedeemableItemsByProjectId(int projectId)
-        {
-            try
-            {
-                var items = await _redeemableItemRepository.GetRedeemableItemsByProjectId(projectId);
-
-                if (items == null || !items.Any())
-                    return Ok(items.Select(item => new
-                    {
-                        item.Id,
-                        item.Name,
-                        item.Cost,
-                        item.ProjectId,
-                        imageUrl = $"https://localhost:7150/{item.ImageUrl.Replace("\\", "/")}"
-                    }));
-
-
-
-                return Ok(items.Select(item => new
-                {
-                    item.Id,
-                    item.Name,
-                    item.Cost,
-                    item.ProjectId,
-                    imageUrl = $"https://localhost:7150/{item.ImageUrl.Replace("\\", "/")}"
-                }));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Unexpected error occurred: {ex.Message}");
-            }
-        }
-
-
 
         [HttpPut("{id}")]
         [RequestSizeLimit(30 * 1024 * 1024)]
@@ -139,24 +203,11 @@ namespace SonicPoints.Controllers
 
                 if (dto.ImageUrl != null && dto.ImageUrl.Length > 0)
                 {
-                    var projectRoot = Directory.GetCurrentDirectory();
-                    var uploadFolder = Path.Combine(projectRoot, "Redeemable Items");
-                    Directory.CreateDirectory(uploadFolder);
+                    var uploadedUrl = await UploadToImgBB(dto.ImageUrl);
+                    if (string.IsNullOrEmpty(uploadedUrl))
+                        return StatusCode(500, "Image upload failed.");
 
-                    var oldImagePath = Path.Combine(projectRoot, redeemableItem.ImageUrl ?? "");
-                    if (System.IO.File.Exists(oldImagePath))
-                        System.IO.File.Delete(oldImagePath);
-
-                    string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture);
-                    var newFileName = $"{timestamp}_{Path.GetFileName(dto.ImageUrl.FileName)}";
-                    var newFilePath = Path.Combine(uploadFolder, newFileName);
-
-                    using (var stream = new FileStream(newFilePath, FileMode.Create))
-                    {
-                        await dto.ImageUrl.CopyToAsync(stream);
-                    }
-
-                    redeemableItem.ImageUrl = Path.Combine("Redeemable Items", newFileName);
+                    redeemableItem.ImageUrl = uploadedUrl;
                 }
 
                 var updatedItem = await _redeemableItemRepository.UpdateRedeemableItemAsync(redeemableItem);
@@ -167,6 +218,29 @@ namespace SonicPoints.Controllers
                 return StatusCode(500, $"Unexpected error occurred: {ex.Message}");
             }
         }
+
+        [HttpGet("project/{projectId}")]
+        public async Task<IActionResult> GetRedeemableItemsByProjectId(int projectId)
+        {
+            try
+            {
+                var items = await _redeemableItemRepository.GetRedeemableItemsByProjectId(projectId);
+
+                return Ok(items.Select(item => new
+                {
+                    item.Id,
+                    item.Name,
+                    item.Cost,
+                    item.ProjectId,
+                    imageUrl = item.ImageUrl
+                }));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Unexpected error occurred: {ex.Message}");
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRedeemableItemById(int id)
         {
@@ -182,7 +256,7 @@ namespace SonicPoints.Controllers
                     item.Name,
                     item.Cost,
                     item.ProjectId,
-                    imageUrl = $"https://localhost:7150/{item.ImageUrl.Replace("\\", "/")}"
+                    imageUrl = item.ImageUrl
                 });
             }
             catch (Exception ex)
@@ -190,6 +264,7 @@ namespace SonicPoints.Controllers
                 return StatusCode(500, $"Unexpected error occurred: {ex.Message}");
             }
         }
+
         [HttpGet("points/{projectId}")]
         public async Task<IActionResult> GetUserPoints(int projectId)
         {
@@ -202,7 +277,6 @@ namespace SonicPoints.Controllers
 
             return Ok(new { points });
         }
-
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRedeemableItem(int id)
@@ -218,10 +292,6 @@ namespace SonicPoints.Controllers
                 var authorized = await _projectAuthorization.HasProjectRoleAsync(userId!, redeemableItem.ProjectId, "Admin", "Manager");
                 if (!authorized)
                     return Forbid("You are not authorized to delete items in this project.");
-
-                var fullImagePath = Path.Combine(Directory.GetCurrentDirectory(), redeemableItem.ImageUrl ?? "");
-                if (System.IO.File.Exists(fullImagePath))
-                    System.IO.File.Delete(fullImagePath);
 
                 await _redeemableItemRepository.DeleteRedeemableItemAsync(id);
                 return NoContent();

@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "D:\\College Resources\\Fyp project\\SonicPoints\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reedemableitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\reedemableitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\rewardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\rewardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,20 +43,8 @@
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dto\\leaderboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reedemableitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\reedemableitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\rewardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\rewardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\repository\\chatrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\dto\\reportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:dto\\reportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -73,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\repository\\leaderboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:repository\\leaderboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F526DD15-B689-4E1D-A47E-584CC7C39F99}|SonicPoints.csproj|d:\\college resources\\fyp project\\sonicpoints\\models\\leaderboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -206,32 +206,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TaskController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\TaskController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TaskController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\TaskController.cs",
-              "RelativeToolTip": "Controllers\\TaskController.cs",
-              "ViewState": "AgIAALYAAAAAAAAAAADgv88AAAAQAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "RewardController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\RewardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RewardController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\RewardController.cs",
+              "RelativeToolTip": "Controllers\\RewardController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAswF0AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:36:03.618Z",
+              "WhenOpened": "2025-06-03T19:35:47.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAPkAAAAAAAAAAADwvxMBAAABAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "ProjectUserPoints.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
+              "RelativeDocumentMoniker": "Models\\ProjectUserPoints.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
+              "RelativeToolTip": "Models\\ProjectUserPoints.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T18:41:44.549Z"
+              "WhenOpened": "2025-06-03T19:37:18.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T15:43:47.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "Controllers\\ReportController.cs",
+              "ViewState": "AgIAAOQAAAAAAAAAAAAiwPgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:35:39.416Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -247,7 +272,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAwwDgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:31:33.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAwwJUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:41:44.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReedemableItemController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReedemableItemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReedemableItemController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReedemableItemController.cs",
+              "RelativeToolTip": "Controllers\\ReedemableItemController.cs",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAwwCUBAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:35:28.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "FeedbackController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\FeedbackController.cs",
               "RelativeDocumentMoniker": "Controllers\\FeedbackController.cs",
@@ -255,64 +319,24 @@
               "RelativeToolTip": "Controllers\\FeedbackController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:33:25.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-03T19:33:25.182Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ReedemableItemController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReedemableItemController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReedemableItemController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReedemableItemController.cs",
-              "RelativeToolTip": "Controllers\\ReedemableItemController.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAwwOoAAAABAAAAAAAAAA==",
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TaskController.cs",
+              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "Controllers\\TaskController.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAADgv88AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:35:28.456Z",
+              "WhenOpened": "2025-06-03T19:36:03.618Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RewardController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\RewardController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RewardController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\RewardController.cs",
-              "RelativeToolTip": "Controllers\\RewardController.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAwwIsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:35:47.979Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProjectUserPoints.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
-              "RelativeDocumentMoniker": "Models\\ProjectUserPoints.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ProjectUserPoints.cs",
-              "RelativeToolTip": "Models\\ProjectUserPoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:37:18.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBoAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T15:43:47.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "LeaderboardController.cs.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\LeaderboardController.cs.cs",
               "RelativeDocumentMoniker": "Controllers\\LeaderboardController.cs.cs",
@@ -320,12 +344,11 @@
               "RelativeToolTip": "Controllers\\LeaderboardController.cs.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAYwDsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:33:33.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-03T19:33:33.065Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "LeaderboardDto.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\LeaderboardDto.cs",
               "RelativeDocumentMoniker": "Dto\\LeaderboardDto.cs",
@@ -333,12 +356,11 @@
               "RelativeToolTip": "Dto\\LeaderboardDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:38:16.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T04:38:16.707Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ReportDto.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\ReportDto.cs",
               "RelativeDocumentMoniker": "Dto\\ReportDto.cs",
@@ -350,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ChatMessage.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\ChatMessage.cs",
               "RelativeDocumentMoniker": "Models\\ChatMessage.cs",
@@ -362,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "IChatRepository.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Repository\\IChatRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IChatRepository.cs",
@@ -374,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ChatRepository .cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Repository\\ChatRepository .cs",
               "RelativeDocumentMoniker": "Repository\\ChatRepository .cs",
@@ -386,19 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ReportController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReportController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ReportController.cs",
-              "RelativeToolTip": "Controllers\\ReportController.cs",
-              "ViewState": "AgIAAOQAAAAAAAAAAAAiwPgAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:35:39.416Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Feedback.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Models\\Feedback.cs",
               "RelativeDocumentMoniker": "Models\\Feedback.cs",
@@ -410,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "FeedbackDto.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Dto\\FeedbackDto.cs",
               "RelativeDocumentMoniker": "Dto\\FeedbackDto.cs",
@@ -422,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ProjectController.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\ProjectController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProjectController.cs",
@@ -431,18 +441,6 @@
               "ViewState": "AgIAABkBAAAAAAAAAAAswDMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T19:35:03.891Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
-              "ToolTip": "D:\\College Resources\\Fyp project\\SonicPoints\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAYwEoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:31:33.676Z"
             },
             {
               "$type": "Document",
@@ -494,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "LeaderboardRepository.cs",
               "DocumentMoniker": "D:\\College Resources\\Fyp project\\SonicPoints\\Repository\\LeaderboardRepository.cs",
               "RelativeDocumentMoniker": "Repository\\LeaderboardRepository.cs",

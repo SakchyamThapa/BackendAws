@@ -613,29 +613,6 @@
         }
       }
     },
-    "/api/redeemableitems/project/{projectId}": {
-      "get": {
-        "tags": [
-          "RedeemableItem"
-        ],
-        "parameters": [
-          {
-            "name": "projectId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/redeemableitems/{id}": {
       "put": {
         "tags": [
@@ -733,6 +710,29 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/redeemableitems/project/{projectId}": {
+      "get": {
+        "tags": [
+          "RedeemableItem"
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
             "in": "path",
             "required": true,
             "schema": {
